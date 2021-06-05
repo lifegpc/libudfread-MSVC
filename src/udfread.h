@@ -167,7 +167,7 @@ UDF_PUBLIC UDFDIR *udfread_opendir_at(UDFDIR *dir, const char *name);
  * @param entry  storege space for directory entry
  * @return next directory stream entry, or NULL if EOF or error.
  */
-struct udfread_dirent *udfread_readdir (UDFDIR *, struct udfread_dirent *entry);
+UDF_PUBLIC struct udfread_dirent *udfread_readdir (UDFDIR *, struct udfread_dirent *entry);
 
 /**
  *  Rewind directory stream
