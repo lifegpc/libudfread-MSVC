@@ -19,6 +19,17 @@
  * <http://www.gnu.org/licenses/>.
  */
 
+#if defined(_WIN32)
+#include <windows.h>
+#    if defined(__GNUC__)
+#        define UDF_PUBLIC  __attribute__((dllexport))
+#        define UDF_PRIVATE
+#    else
+#        define UDF_PUBLIC  __declspec(dllexport)
+#        define UDF_PRIVATE
+#    endif
+#endif
+
 #ifndef UDFREAD_VERSION_H_
 #define UDFREAD_VERSION_H_
 
@@ -40,6 +51,6 @@
  *  Get library version
  *
  */
-void udfread_get_version(int *major, int *minor, int *micro);
+UDF_PUBLIC void udfread_get_version(int *major, int *minor, int *micro);
 
 #endif /* UDFREAD_VERSION_H_ */

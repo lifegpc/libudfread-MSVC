@@ -1,0 +1,5 @@
+#cmakedefine _LARGE_FILES @_LARGE_FILES@
+#cmakedefine _FILE_OFFSET_BITS @_FILE_OFFSET_BITS@
+#cmakedefine HAVE_DLFCN_H @HAVE_DLFCN_H@
+#cmakedefine HAVE_UNISTD_H @HAVE_UNISTD_H@
+#cmakedefine HAVE_PTHREAD_H @HAVE_PTHREAD_H@

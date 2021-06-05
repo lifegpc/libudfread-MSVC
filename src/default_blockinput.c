@@ -30,6 +30,8 @@
 #include <stdlib.h>
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#else
+typedef long long ssize_t;
 #endif
 #ifdef HAVE_FCNTL_H
 #include <fcntl.h>
@@ -37,6 +39,7 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include <fcntl.h>
 #ifndef HAVE_UNISTD_H
 #include <stdio.h>
 #endif
