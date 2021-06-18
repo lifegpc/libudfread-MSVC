@@ -34,5 +34,13 @@ set_target_properties(libudfread PROPERTIES
 PUBLIC_HEADER "${CMAKE_SOURCE_DIR}/src/udfread.h;${CMAKE_SOURCE_DIR}/src/blockinput.h;${CMAKE_BINARY_DIR}/udfread-version.h"
 )
 add_library(libudfread-static STATIC ${OBJS})
-install(TARGETS libudfread libudfread-static
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+add_executable(udfcat examples/udfcat.c)
+target_link_libraries(udfcat libudfread)
+add_executable(udfls examples/udfls.c)
+target_link_libraries(udfls libudfread)
+
+install(TARGETS libudfread libudfread-static udfcat udfls
 PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include/udfread)
