@@ -187,6 +187,9 @@ static int _open_win32(const char *path, int flags)
     }
     fd = _wopen(wpath, flags);
     free(wpath);
+    if (fd == -1) {
+        fd = _open(path, flags);
+    }
     return fd;
 }
 #endif

@@ -27,6 +27,10 @@
 
 #include "udfread.h"
 
+#if _MSC_VER
+#include <windows.h>
+#endif
+
 static int _lsdir_at(UDFDIR *dir, const char *path, int depth)
 {
     struct udfread_dirent dirent;
@@ -76,6 +80,9 @@ static int _lsdir_at(UDFDIR *dir, const char *path, int depth)
 
 int main(int argc, const char *argv[])
 {
+#ifdef _MSC_VER
+    SetConsoleOutputCP(CP_UTF8);
+#endif
     udfread *udf;
     UDFDIR *root;
 
